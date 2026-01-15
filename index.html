@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XO Igra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="pocetniEkran" class="ekran active">
+        <div class="container">
+            <h1>XO IGRA</h1>
+            <div class="pravila">
+                <h2>Dobrodošli!</h2>
+                <p>Ovo je XO igra s posebnom mehanikom:</p>
+                <ul>
+                    <li>Svaki igrač može imati maksimalno 3 aktivna poteza na tabli.</li>
+                    <li>Kada postaviš 4. potez, tvoj 1. potez nestaje.</li>
+                    <li>Kada postaviš 5. potez, nestaje 2. potez - i tako dalje.</li>
+                    <li>Pobjeđuješ ako imaš 3 znaka u nizu, koloni ili dijagonali.</li>
+                    <li>Pravilo vrijedi odvojeno za svakog igrača.</li>
+                </ul>
+            </div>
+            <button id="pocniIgruBtn" class="btn btn-primary">POČNI IGRU</button>
+        </div>
+    </div>
+
+    <div id="igraEkran" class="ekran">
+        <div class="container">
+            <div>
+                <div>
+                    <h1>XO IGRA</h1>
+                </div>
+                <div class="tablaHeader">
+                    <div class="trenutni">
+                        <span id="trenutniIgrac">Na redu je igrač X</span>
+                    </div>
+                    <div class="timerDiv">
+                        <span class="timerSpan">VRIJEME:</span>
+                        <span id="timer">0:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tablaWrapper">
+                <div class="tabla">
+                    <button class="polje" data-index="0"></button>
+                    <button class="polje" data-index="1"></button>
+                    <button class="polje" data-index="2"></button>
+                    <button class="polje" data-index="3"></button>
+                    <button class="polje" data-index="4"></button>
+                    <button class="polje" data-index="5"></button>
+                    <button class="polje" data-index="6"></button>
+                    <button class="polje" data-index="7"></button>
+                    <button class="polje" data-index="8"></button>
+                </div>
+            </div>
+
+            <div id="rezultat" class="rezultatDiv">
+                <p id="rezultatText"></p>
+            </div>
+
+            <div class="dugmad">
+                <button id="novaIgraBtn" class="btn btn-primary">NOVA IGRA</button>
+                <button id="homeBtn" class="btn btn-secondary">POČETNA</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

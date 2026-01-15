@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    /*kod za pozadinsku animaciju preuzet sa https://codepen.io/t_afif/pen/OJvBbxm*/
+    --s: 150px; /* control the size */
+    --c1: #c8c9b5;
+    --c2: #3d423c;
+
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: var(--_s) conic-gradient(at 40% 40%,#0000 75%,var(--c1) 0);
+    --_p: var(--_s) conic-gradient(at 20% 20%,#0000 75%,var(--c2) 0);
+    background:
+            calc( .9*var(--s)) calc( .9*var(--s))/var(--_p),
+            calc(-.1*var(--s)) calc(-.1*var(--s))/var(--_p),
+            calc( .7*var(--s)) calc( .7*var(--s))/var(--_g),
+            calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
+            conic-gradient(from 90deg at 20% 20%,var(--c2) 25%,var(--c1) 0)
+            0 0/var(--s) var(--s);
+    animation: m 3s infinite;
+}
+
+@keyframes m {
+    0% {
+        background-position:
+                calc( .9*var(--s)) calc( .9*var(--s)),
+                calc(-.1*var(--s)) calc(-.1*var(--s)),
+                calc( .7*var(--s)) calc( .7*var(--s)),
+                calc(-.3*var(--s)) calc(-.3*var(--s)),0 0
+    }
+    25% {
+        background-position:
+                calc(1.9*var(--s)) calc( .9*var(--s)),
+                calc(-1.1*var(--s)) calc(-.1*var(--s)),
+                calc(1.7*var(--s)) calc( .7*var(--s)),
+                calc(-1.3*var(--s)) calc(-.3*var(--s)),0 0
+    }
+    50% {
+        background-position:
+                calc(1.9*var(--s)) calc(-.1*var(--s)),
+                calc(-1.1*var(--s)) calc( .9*var(--s)),
+                calc(1.7*var(--s)) calc(-.3*var(--s)),
+                calc(-1.3*var(--s)) calc( .7*var(--s)),0 0
+    }
+    75% {
+        background-position:
+                calc(2.9*var(--s)) calc(-.1*var(--s)),
+                calc(-2.1*var(--s)) calc( .9*var(--s)),
+                calc(2.7*var(--s)) calc(-.3*var(--s)),
+                calc(-2.3*var(--s)) calc( .7*var(--s)),0 0
+    }
+    100% {
+        background-position:
+                calc(2.9*var(--s)) calc(-1.1*var(--s)),
+                calc(-2.1*var(--s)) calc(1.9*var(--s)),
+                calc(2.7*var(--s)) calc(-1.3*var(--s)),
+                calc(-2.3*var(--s)) calc(1.7*var(--s)),0 0
+    }
+}
+
+.ekran {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+    margin: 0 auto;
+}
+
+.ekran.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    background-color: #c0c0c0;
+    border: 4px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    padding: 40px 30px;
+    box-shadow: 4px 4px 0 #000000;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #000080;
+    text-shadow: 2px 2px #ffffff, 4px 4px #000000;
+}
+
+h2 {
+    color: #000080;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+ul {
+    list-style: none;
+    margin: 15px 0;
+}
+
+li {
+    padding: 10px;
+    margin: 8px 0;
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    line-height: 1.5;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-size: 0.9em;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    font-weight: bold;
+    box-shadow: 4px 4px 0 #555;
+}
+
+.btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #555;
+}
+
+.btn-primary {
+    background-color: #000080;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #c0c0c0;
+    color: black;
+}
+
+.pravila {
+    text-align: left;
+    margin: 30px 0;
+    background-color: #dfdfdf;
+    padding: 20px;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+}
+
+.tablaHeader {
+    background-color: #dfdfdf;
+    padding: 10px;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #000000;
+    margin: 15px 0;
+}
+
+#trenutniIgrac {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #000080;
+    padding: 6px;
+    background-color: #c0c0c0;
+    border: 1px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    display: inline-block;
+}
+
+.timerDiv {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #c0c0c0;
+    border: 1px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+}
+
+.timerSpan {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000080;
+    margin-right: 8px;
+}
+
+#timer {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #ff0000;
+    font-family: monospace;
+}
+
+.dugmad {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tablaWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.tabla {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 4px;
+    padding: 10px;
+    background-color: #808080;
+    border: 2px solid;
+    border-color: #000000 #ffffff #ffffff #000000;
+}
+
+.polje {
+    width: 100px;
+    height: 100px;
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0 #555555;
+}
+
+.polje:hover {
+    background-color: #dfdfdf;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #555555;
+}
+
+.polje:active {
+    border-color: #000000 #ffffff #ffffff #000000;
+}
+
+.polje.x {
+    background-color: #0000ff;
+    color: white;
+    font-weight: bold;
+}
+
+.polje.x:hover {
+    background-color: #0000ff;
+}
+
+.polje.o {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+}
+
+.polje.o:hover {
+    background-color: #ff0000;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.polje.disappear {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.polje.win {
+    animation: pulseWave 0.6s ease-in-out forwards;
+    --delay: 0s;
+    animation-delay: var(--delay);
+}
+
+@keyframes pulseWave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.8); }
+}
+
+.rezultatDiv {
+    text-align: center;
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.1s ease;
+    animation: slideIn 0.5s ease-in-out;
+    border: 2px solid;
+    border-color: #ffffff #000000 #000000 #ffffff;
+    box-shadow: 2px 2px 0 #555555;
+    background-color: #008000;
+}
+
+.rezultatDiv.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
