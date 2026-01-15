@@ -16,7 +16,7 @@ body {
     /*kod za pozadinsku animaciju preuzet sa https://codepen.io/t_afif/pen/OJvBbxm*/
     --s: 150px; /* control the size */
     --c1: #c8c9b5;
-    --c2: #3d423c;
+    --c2: #71796f;
 
     --_s: calc(2*var(--s)) calc(2*var(--s));
     --_g: var(--_s) conic-gradient(at 40% 40%,#0000 75%,var(--c1) 0);
@@ -28,7 +28,7 @@ body {
             calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
             conic-gradient(from 90deg at 20% 20%,var(--c2) 25%,var(--c1) 0)
             0 0/var(--s) var(--s);
-    animation: m 3s infinite;
+    animation: m 4.5s infinite;
 }
 
 @keyframes m {
